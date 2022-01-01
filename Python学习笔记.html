@@ -1,0 +1,961 @@
+<!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8"/>
+        <title>Python学习笔记</title>
+        <link rel="stylesheet" href="./katex.min.css">
+        <style>
+          html, body { margin: 0; padding: 0; background-color: #ffffff; }
+          .markdown-body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; }
+          @media (max-width: 767px) { .markdown-body { padding: 15px; } }
+          .markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: system-ui, -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li, .markdown-body li > ul {
+  margin-top: .25em;
+}
+
+.markdown-body ul li.task-list-item {
+  position: relative;
+  appearance: none;
+  list-style: none;
+}
+
+.markdown-body ul li.task-list-item.checked {
+  text-decoration: line-through;
+  color: #bdbdbd;
+}
+
+.markdown-body ul li.task-list-item::before {
+  content: '';
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  border-radius: 2px;
+  border: 2px solid #757575;
+}
+
+.markdown-body ul li.task-list-item.checked::before {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+.markdown-body ul li.task-list-item.checked::after {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 5px;
+  width: 4px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+          .ace-tm{ background: transparent!important; }.ace_static_highlight{ font-size: unset!important; }.ace_static_highlight {font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', 'Droid Sans Mono', monospace;font-size: 12px;white-space: pre-wrap}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;contain: none;}.ace_static_highlight.ace_show_gutter .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line { position: relative; }.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+        </style>
+      </head>
+      <body>
+        <article class="markdown-body">
+          <p><strong>print函数</strong></p>
+<p><u>数字</u></p>
+<p>（如520，98.5）输出时不用引号</p>
+<p>如<code>print(520)</code>和<code>print(98.5)</code></p>
+<p>也可以用引号 <code>print(&quot;520&quot;)</code></p>
+<br/>
+<p><u>字符串</u></p>
+<p>必须加引号</p>
+<p>如<code>print(&quot;hello world&quot;)</code></p>
+<br/>
+<p><u>含有运算符的表达式</u></p>
+<p>像<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">1+3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span></p>
+<p>其中1和3是操作数，加号是运算符，含有两者叫做表达式</p>
+<p>如<code>print(3+1)</code> 那么它就输出4</p>
+<br/>
+<p><u>输出到本地</u>()</p>
+<p>如<code>open(&quot;E:/日你妈.txt&quot;,&quot;a+&quot;)</code></p>
+<ul>
+<li>
+<p>其中<code>a</code>如果在<code>E:/</code>目录下没有<code>日你妈.txt</code>这个文件就创建一个，</p>
+<p>如果有就在原来基础上追加</p>
+<p>(读写的方式创建文件。没同名文件创建，有的话在文件内容后面追加)</p>
+</li>
+</ul>
+<p>现在我们输入<code>open(&quot;E:/日你妈.txt&quot;,&quot;a+&quot;)</code></p>
+<p>然后把它们存入变量<code>F</code>中</p>
+<p>相当于<code>F=open(&quot;E:/日你妈.txt&quot;,&quot;a+&quot;)</code></p>
+<p>再把内容写入<code>日你妈.txt</code>中</p>
+<p>输入<code>print(&quot;haha&quot;,file=F)</code></p>
+<p>其中file ：文件路径</p>
+<p>最后还可以把这个变量关掉</p>
+<p>输入<code>F.close()</code></p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>F</span> <span class='ace_keyword ace_operator'>=</span> <span class='ace_support ace_function'>open</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;E:/<span class='ace_cjk' style='width:NaNpx'>日</span><span class='ace_cjk' style='width:NaNpx'>你</span><span class='ace_cjk' style='width:NaNpx'>妈</span>.txt&#34;</span><span class='ace_punctuation'>,</span><span class='ace_string'>&#34;a+&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;haha&#34;</span><span class='ace_punctuation'>,</span><span class='ace_identifier'>file</span><span class='ace_keyword ace_operator'>=</span><span class='ace_identifier'>F</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_identifier'>F</span><span class='ace_punctuation'>.</span><span class='ace_function ace_support'>close</span><span class='ace_paren ace_lparen'>(</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<br/>
+<p><u>不换行输出</u></p>
+<p>如<code>print(&quot;hello&quot;,&quot;world&quot;,&quot;python&quot;)</code></p>
+<hr>
+<br/>
+<p><strong>一些转义字符</strong></p>
+<p><code>\n </code>     换行（<code>n</code>指的是newline）</p>
+<p><code>\r</code>       回车</p>
+<p><code>\t  </code>     水平制表符</p>
+<p><code>\b </code>      退格</p>
+<p>其中 \ 是转义功能的首字母</p>
+<p>输入<code>print(&quot;hello\nworld&quot;)</code></p>
+<p>那么它就会输出
+<code>hello</code>
+<code>world</code></p>
+<p>输入<code>print(&quot;hello\tworld&quot;)</code></p>
+<p>那么它就会输出</p>
+<p><code>hello    world</code></p>
+<p>就是一组四个空格的位置</p>
+<p>具体了解<a href="https://">https://www.bilibili.com/video/BV1Sw411Z779?p=7&amp;t=159.6</a></p>
+<p>输入<code>print(&quot;hello\rworld&quot;)</code></p>
+<p>那么它就会输出</p>
+<p><code>world</code></p>
+<p>直接把hello覆盖掉了</p>
+<br/>
+<blockquote>
+<p>在输入<code>print(&quot;https:\\www.baidu.com&quot;)</code>时</p>
+</blockquote>
+<blockquote>
+<p>它会只输出<code>https:\www.baidu.com</code></p>
+<p>这时候要多加一个或两个<u>反斜杠</u></p>
+<p>因为它把第二个反斜杠看成了转义字符首字母，就自动隐藏了</p>
+</blockquote>
+<hr>
+<p><strong>原字符</strong></p>
+<p><u>不希望字符串中的转义字符起作用，就使用原字符</u></p>
+<p>假如我们输入<code>print(&quot;hello\nworld&quot;)</code></p>
+<p>那么它就会输出</p>
+<p><code>hello</code></p>
+<p><code>world</code></p>
+<p>那么我们想要让<code>\n</code>不起作用，让它输出<code>hello\nworld</code></p>
+<p>就在<code>&quot;hello\nworld&quot;</code>前加R或r，即<code>print(R&quot;hello\nworld&quot;)</code>或<code>print(r&quot;hello\nworld&quot;)</code></p>
+<ul>
+<li>注意：原字符最后一个字符不能是<u>反斜杠</u>
+<blockquote>
+<p>如<code>print(r&quot;hello\nworld\&quot;)</code></p>
+<p>那么它就会报错了</p>
+<p>要非要输出hello\nworld\的话，</p>
+<p>输入<code>print(r&quot;hello\nworld\&quot;)</code></p>
+<p>也就是在后面加一个空格</p>
+<p>总之就是想办法不要把反斜杠和后面的引号接触在一起</p>
+<p>因为反斜杠会把引号转成<u>原字符</u>造成格式错误</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><strong>二进制与字符编码</strong></p>
+<p><u>什么叫做二进制和字符编码</u></p>
+<p><a href="https://">https://www.bilibili.com/video/BV1Sw411Z779?p=8&amp;t=42.4</a></p>
+<p>一个位置可以写上0或1</p>
+<p>设有a个位置，那就有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>a</mi></msup></mrow><annotation encoding="application/x-tex">2^a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span></span></span></span></span></span></span></span>个位置</p>
+<img src="379f9d9eaab32674b12e2dc0cd08dc3e.png" alt="无标题.png" style="zoom:110%;" />
+<ul>
+<li>
+<p>8个位置（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">2^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span>=256）称为1字节（即8bit=1bite）</p>
+</li>
+<li>
+<p>1024bite=1KB(千字节)</p>
+</li>
+<li>
+<p>1024KB=1MB（兆字节）</p>
+</li>
+<li>
+<p>1024MB=1GB（吉字节）</p>
+</li>
+<li>
+<p>1024GB=1TB(太字节)</p>
+<br/>
+<p><u>各种字符编码</u></p>
+<p><img src="a0e6c63540f1466725becd0d849e68b3.png" alt="截图"></p>
+</li>
+</ul>
+<br/>
+<p><u>chr函数</u></p>
+<p><code>乘</code>十六进制是4e58，那么它的二进制是<code>0100111001011000</code></p>
+<ol>
+<li>输入<code>print(chr())</code></li>
+<li>再把<code>0100111001011000</code>丢进去，即<code>print(chr(0100111001011000))</code>
+<blockquote>
+<p>但发现它会报错，因为它是二进制，而<u>它默认的是十进制</u></p>
+<p>这时候再在<code>0100111001011000</code>前输入个0b</p>
+<p>即<code>print(chr(0b0100111001011000))</code></p>
+<p>它就会输出<code>乘</code></p>
+</blockquote>
+</li>
+</ol>
+<br/>
+<p><u>ord函数</u></p>
+<ol>
+<li>输入<code>print(ord(”“))</code></li>
+<li>再把<code>乘</code>丢进去，即<code>print(ord(&quot;乘&quot;))</code>，那么它就会输出<code>20056</code>
+<blockquote>
+<p><code>20056</code>是十进制，它默认的是十进制</p>
+</blockquote>
+</li>
+</ol>
+<br/>
+<ul>
+<li>注意：chr函数括号内<u>不用加引号</u>，ord函括号内<u>要加引号</u></li>
+<li>不管是几进制，转到计算机中都是二进制，因为计算机只识别二进制</li>
+<li>chr函数不仅能搞二进制，还能搞八进制等各种进制，如<code>print(chr(20056))</code></li>
+</ul>
+<hr>
+<p><strong>保留字</strong></p>
+<p>在Python中<u>不可以给对象命名</u>的单词，</p>
+<p>如你在给新的Python文件命名时或设置变量时不可以使用</p>
+<p><u>怎么查询保留字</u></p>
+<p>输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_keyword'>import</span> <span class='ace_identifier'>keyword</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>keyword</span><span class='ace_punctuation'>.</span><span class='ace_function ace_support'>kwlist</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<p>那么它就会输出所有的保留字</p>
+<hr>
+<p><strong>标识符</strong></p>
+<p>在<u>给对象起的名字</u>叫做标识符</p>
+<p><u>规则如下</u></p>
+<ul>
+<li>你可以使用字母、数字、下划线</li>
+<li>不能以数字开头</li>
+<li>不能是保留字</li>
+<li>我是严格区分大小写的</li>
+</ul>
+<hr>
+<p><strong>变量</strong></p>
+<p>变量是内存中一个<u>带标签的盒子</u></p>
+<p><img src="4a8d7ba6255458e24b9e80588b6f2df4.png" alt="截图"></p>
+<p>把<code>马丽亚</code>放进变量里</p>
+<p>输入<code>name=&quot;马丽亚&quot;</code></p>
+<p>其中name即变量名（标识符），可在标识符原则下随便取</p>
+<p><code>&quot;马丽亚&quot;</code>是字符串</p>
+<p><img src="0ca45b24d3caef8b5efc2b9f40f68c17.png" alt="截图"></p>
+<br/>
+<p><u>变量的定义和使用</u></p>
+<p>变量由<u>标识、类型和值</u>三部分组成</p>
+<ul>
+<li>
+<p>标识：表示对象<u>所存储的内存地址</u>，使用内置函数<code>id(obj)</code>来获取</p>
+</li>
+<li>
+<p>类型：表示的是对象的<u>数据类型</u>，使用内置函数<code>type(obj)</code>来获取</p>
+</li>
+<li>
+<p>值：表示对象<u>所存储的具体数据</u>（即刚才的<code>马丽亚</code>）, 使用<code>print(obj)</code>可以将值进行打印输出</p>
+<br/>
+</li>
+</ul>
+<p><u>如何获取标识、类型和值</u></p>
+<p>先了解一点</p>
+<ul>
+<li><code>id</code>是标识</li>
+<li><code>type</code>是类型</li>
+<li>值的话就直接输出变量，即<code>print（name）</code>，输入<code>print(value(name))</code>会报错</li>
+</ul>
+<p>先将<code>马丽亚</code>存入<code>name</code>中，输入<code>name=&quot;马丽亚&quot;</code></p>
+<p>输入<code>print(id(name))</code></p>
+<p>输出的就是这个变量在内存中的地址</p>
+<p>输入<code>print(type(name))</code></p>
+<p>输出的就是这个变量的数据类型，即<code>&lt;class 'str'&gt;</code>，那么这个变量数据类型是<code>str</code></p>
+<p>输入<code>print(name)</code></p>
+<p>输出的就是这个变量中的值</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>=</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>马</span><span class='ace_cjk' style='width:NaNpx'>丽</span><span class='ace_cjk' style='width:NaNpx'>亚</span>&#34;</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>id</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>name</span><span class='ace_paren ace_rparen'>))</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>name</span><span class='ace_paren ace_rparen'>))</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>name</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<hr>
+<p><strong>变量的多次赋值</strong></p>
+<p>当我们输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>=</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>马</span><span class='ace_cjk' style='width:NaNpx'>丽</span><span class='ace_cjk' style='width:NaNpx'>亚</span>&#34;</span>
+</div><div class='ace_line'><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>=</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>楚</span><span class='ace_cjk' style='width:NaNpx'>溜</span><span class='ace_cjk' style='width:NaNpx'>冰</span>&#34;</span>
+</div></div></div></code></pre>
+<p>时</p>
+<p>再输入<code>print(name)</code> 它就会输出<code>楚溜冰</code></p>
+<p>那<code>马丽亚</code>就不会被使用，将会被视为内存垃圾，</p>
+<p>Python的垃圾回收机制会对这个垃圾进行一个回收</p>
+<p><img src="8ff0e394fb9cec25bfa1d85ececdfc74.png" alt="截图"></p>
+<hr>
+<p><strong>常见的数据类型</strong></p>
+<ul>
+<li>int     整数类型         如98（不带小数点和引号的）</li>
+<li>float  浮点数类型       如3.14159、9.8、5.6、33.9</li>
+<li>bool  布尔类型    只能取两个值，这两个值就是<code>true</code>或者<code>false</code>，用来表示<u>真</u>或者<u>假</u></li>
+<li>str     字符串类型      只要加上引号的就称为字符串类型，如&quot;hello world&quot;</li>
+</ul>
+<br/>
+<p><u>整数类型</u>（integer，简写为int）</p>
+<p>英文为integer, 简写为int, 可以表示<u>正数、负数和零</u>，但<u>绝对不能有小数点和引号</u></p>
+<blockquote>
+<p>整数的不同进制表示方式</p>
+<ul>
+<li>十进制→默认的进制</li>
+<li>二进制→以<code>0b</code>开头</li>
+<li>八进制→以<code>0o</code>开头</li>
+<li>十六进制→<code>0x</code>开头</li>
+</ul>
+<p><img src="aad19126b424eee043564f5d4b26b5da.png" alt="截图"></p>
+</blockquote>
+<ol>
+<li>把随意一些整数类型存入变量当中，如输入<code>n1=98</code> <code>n2=56</code> <code>n3=22</code>（设置多个变量）</li>
+<li>输入<code>print(type(n1),type(n2),type(n3))</code>，输出的都是int，即整数类型</li>
+</ol>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>n1</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>98</span>
+</div><div class='ace_line'><span class='ace_identifier'>n2</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>56</span>
+</div><div class='ace_line'><span class='ace_identifier'>n3</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>22</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>n1</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation'>,</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>n2</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation'>,</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>n3</span><span class='ace_paren ace_rparen'>))</span>
+</div></div></div></code></pre>
+<p>将<u>二进制、十进制、八进制、十六进制</u>转换成<u>十进制</u></p>
+<p>输入<code>print(118)</code>（十进制）</p>
+<p>那么它就会输出<code>118</code>（十进制）</p>
+<p>输入<code>print(0b1010110)</code>（二进制）</p>
+<p>那么它就输出<code>86</code>（十进制）</p>
+<p>输入<code>print(0o55555)</code>（八进制）</p>
+<p>那么它就会输出<code>23405</code>（十进制）</p>
+<p>输入<code>print(0x4e58)</code>（十六进制）</p>
+<p>那么它就会输出<code>20056</code>（十进制）</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_numeric'>118</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_numeric'>0b1010110</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_numeric'>0o55555</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_numeric'>0x4e58</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<br/>
+<p><u>浮点数类型</u></p>
+<p>包括<u>整数和小数</u>部分，如3.141596535、33.56、2.33</p>
+<blockquote>
+<p>输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>a</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>3.14</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>a</span><span class='ace_paren ace_rparen'>))</span>
+</div></div></div></code></pre>
+<p>时</p>
+<p>它输出的是<code>&lt;class 'float'&gt;</code>，即浮点数类型</p>
+</blockquote>
+<ul>
+<li>
+<p>浮点数存储<u>不精确性</u></p>
+<p>使用浮点数进行计算时，可能会出现<u>小数位数不确定</u>的情况</p>
+</li>
+</ul>
+<p>正常状态下我们输入<code>print(1.1+1.1)</code></p>
+<p>那么它就会输出<code>2.2</code></p>
+<p>那当我们输入<code>print(1.1+2.2)</code>时，理论上是<code>3.3</code></p>
+<p>但它输出<code>3.3000000000000003</code></p>
+<p>这说明<u>个别</u>浮点数不能精确存储</p>
+<p><u>任何语言中浮点数都不能精确存储</u></p>
+<blockquote>
+<p>解决方案</p>
+<p>导入模块<u>decimal</u>再去计算</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_keyword'>from</span> <span class='ace_identifier'>decimal</span> <span class='ace_keyword'>import</span> <span class='ace_identifier'>Decimal</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>Decimal</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;1.1&#34;</span><span class='ace_paren ace_rparen'>)</span><span class='ace_keyword ace_operator'>+</span><span class='ace_identifier'>Decimal</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;2.2&#34;</span><span class='ace_paren ace_rparen'>))</span>
+</div></div></div></code></pre>
+<p>结果输出的就是<code>3.3</code></p>
+</blockquote>
+<br/>
+<p><u>布尔类型（bool，全称Boolean）</u></p>
+<p>用来表示<u>真或假</u>的值</p>
+<p>True 表示真，False 表示假</p>
+<ul>
+<li>True表示整数1</li>
+<li>False表示整数0</li>
+</ul>
+<p>输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>b</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_language'>True</span>
+</div><div class='ace_line'><span class='ace_identifier'>c</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_language'>False</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>b</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation'>,</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>c</span><span class='ace_paren ace_rparen'>))</span>
+</div></div></div></code></pre>
+<p>它就会输出<code>&lt;class 'bool'&gt; &lt;class 'bool'&gt;</code>，即布尔类型</p>
+<blockquote>
+<p>转成整数计算</p>
+<p>如输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_language'>True</span><span class='ace_keyword ace_operator'>+</span><span class='ace_constant ace_numeric'>1</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_constant ace_language'>False</span><span class='ace_keyword ace_operator'>+</span><span class='ace_constant ace_numeric'>1</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<p>那么它就会输出</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_constant ace_numeric'>2</span>
+</div><div class='ace_line'><span class='ace_constant ace_numeric'>1</span>
+</div></div></div></code></pre>
+<p>就相当于把<code>True</code>和<code>False</code>分别当成1和2看</p>
+</blockquote>
+<br/>
+<p><u>字符串类型</u></p>
+<ul>
+<li>字符串又被称为<u>不可变的字符序列</u></li>
+<li>可以使用<u>单引号、双引号或三引号</u>来定义</li>
+<li>单引号和双引号定义的字符串<u>必须在一行</u></li>
+<li>三引号定义的字符串可以<u>分布在连续的多行</u></li>
+</ul>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_comment'>#<span class='ace_cjk' style='width:NaNpx'>单</span><span class='ace_cjk' style='width:NaNpx'>引</span><span class='ace_cjk' style='width:NaNpx'>号</span></span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#39;hello world&#39;</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_comment'>#<span class='ace_cjk' style='width:NaNpx'>双</span><span class='ace_cjk' style='width:NaNpx'>引</span><span class='ace_cjk' style='width:NaNpx'>号</span></span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;hello world&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_comment'>#<span class='ace_cjk' style='width:NaNpx'>三</span><span class='ace_cjk' style='width:NaNpx'>引</span><span class='ace_cjk' style='width:NaNpx'>号</span></span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;&#34;&#34;hello</span>
+</div><div class='ace_line'><span class='ace_string'>world&#34;&#34;&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<p>其中三引号像这样输入那么它输出的就是</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>hello</span>
+</div><div class='ace_line'><span class='ace_identifier'>world</span>
+</div></div></div></code></pre>
+<ul>
+<li>
+<p>三引号有两种召唤方式</p>
+<p>按三下双引号，即<code>&quot;&quot;&quot;&quot;&quot;&quot;</code></p>
+<p>按三下单引号，即<code>''''''</code></p>
+<p>例如</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_comment'>#<span class='ace_cjk' style='width:NaNpx'>输</span><span class='ace_cjk' style='width:NaNpx'>入</span></span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;&#34;&#34;hello</span>
+</div><div class='ace_line'><span class='ace_string'>world&#34;&#34;&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#39;&#39;&#39;hello</span>
+</div><div class='ace_line'><span class='ace_string'>world&#39;&#39;&#39;</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_comment'>#<span class='ace_cjk' style='width:NaNpx'>输</span><span class='ace_cjk' style='width:NaNpx'>出</span></span>
+</div><div class='ace_line'><span class='ace_identifier'>hello</span>
+</div><div class='ace_line'><span class='ace_identifier'>world</span>
+</div><div class='ace_line'><span class='ace_identifier'>hello</span>
+</div><div class='ace_line'><span class='ace_identifier'>world</span>
+</div></div></div></code></pre>
+</li>
+</ul>
+<hr>
+<p><strong>数据类型转换</strong></p>
+<ul>
+<li>
+<p>为什么需要数据类型转换？</p>
+<p>将不同数据类型的数据拼接在一起</p>
+</li>
+</ul>
+<p>举个例子</p>
+<p>我想让它输出<code>我叫 楚溜冰 我今年 20 岁了</code></p>
+<p>直接输入</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>=</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>楚</span><span class='ace_cjk' style='width:NaNpx'>溜</span><span class='ace_cjk' style='width:NaNpx'>冰</span>&#34;</span>
+</div><div class='ace_line'><span class='ace_identifier'>age</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>20</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>name</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation'>,</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>age</span><span class='ace_paren ace_rparen'>))</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>我</span><span class='ace_cjk' style='width:NaNpx'>叫</span>&#34;</span><span class='ace_punctuation'>,</span><span class='ace_identifier'>name</span><span class='ace_punctuation'>,</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>我</span><span class='ace_cjk' style='width:NaNpx'>今</span><span class='ace_cjk' style='width:NaNpx'>年</span>&#34;</span><span class='ace_punctuation'>,</span><span class='ace_identifier'>age</span><span class='ace_punctuation'>,</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>岁</span><span class='ace_cjk' style='width:NaNpx'>了</span>&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<p>还有一种方法，通过加号（连接符）连接（把逗号换成了加号）</p>
+<pre><code class="language-python"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>=</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>楚</span><span class='ace_cjk' style='width:NaNpx'>溜</span><span class='ace_cjk' style='width:NaNpx'>冰</span>&#34;</span>
+</div><div class='ace_line'><span class='ace_identifier'>age</span><span class='ace_keyword ace_operator'>=</span><span class='ace_constant ace_numeric'>20</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>name</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation'>,</span><span class='ace_support ace_function'>type</span><span class='ace_paren ace_lparen'>(</span><span class='ace_identifier'>age</span><span class='ace_paren ace_rparen'>))</span>
+</div><div class='ace_line'><span class='ace_keyword'>print</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>我</span><span class='ace_cjk' style='width:NaNpx'>叫</span>&#34;</span><span class='ace_keyword ace_operator'>+</span><span class='ace_identifier'>name</span><span class='ace_keyword ace_operator'>+</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>我</span><span class='ace_cjk' style='width:NaNpx'>今</span><span class='ace_cjk' style='width:NaNpx'>年</span>&#34;</span><span class='ace_keyword ace_operator'>+</span><span class='ace_identifier'>age</span><span class='ace_keyword ace_operator'>+</span><span class='ace_string'>&#34;<span class='ace_cjk' style='width:NaNpx'>岁</span><span class='ace_cjk' style='width:NaNpx'>了</span>&#34;</span><span class='ace_paren ace_rparen'>)</span>
+</div></div></div></code></pre>
+<p>但是它会报错（TypeError: can only concatenate str (not &quot;int&quot;) to str）</p>
+<p>意思是str和int格式不能连接在一起（name和age）</p>
+<ul>
+<li>
+<p><u>解决方案</u>如下</p>
+<p>将int类型通过<code>str()</code>转换成str类型</p>
+<p><code>print(&quot;我叫&quot;+name+&quot;我今年&quot;+str(age)+&quot;岁了&quot;)</code></p>
+<p>也就是在<code>age</code>前加个<code>str</code>，再用括号括起来</p>
+<p>输出的内容为<code>我叫楚溜冰我今年20岁了</code></p>
+</li>
+</ul>
+<p>用连接符和用逗号的区别是前者没有空格，后者有空格</p>
+<br/>
+<p><u>数据类型转换函数</u></p>
+<p><code>str()</code>将其它数据类型转换成str，即字符串</p>
+<p><code>int()</code>将其它数据类型转换成int，即整数</p>
+<p><code>float()</code>将其它数据类型转换成float，即浮点数</p>
+<p><img src="f035d0f603f2414512801d9f5ddb44cc.png" alt="截图"></p>
+<br/>
+<br/>
+<hr>
+<p>计算</p>
+<p>➕       加法</p>
+<p>➖       减法</p>
+<p>✳       乘法</p>
+<p>/           除法</p>
+<p>**         幂运算（例如2✳✳3=2的3次方=2✖2✖2=8）</p>
+<p>%         1.取余     （一正一负要公式），例如9%4=1</p>
+<pre><code><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_indent-guide'>    </span>    2.<span class='ace_cjk' style='width:NaNpx'>余</span><span class='ace_cjk' style='width:NaNpx'>数</span>=<span class='ace_cjk' style='width:NaNpx'>被</span><span class='ace_cjk' style='width:NaNpx'>除</span><span class='ace_cjk' style='width:NaNpx'>数</span>-<span class='ace_cjk' style='width:NaNpx'>除</span><span class='ace_cjk' style='width:NaNpx'>数</span>*<span class='ace_cjk' style='width:NaNpx'>商</span><span class='ace_cjk' style='width:NaNpx'>，</span><span class='ace_cjk' style='width:NaNpx'>例</span><span class='ace_cjk' style='width:NaNpx'>如</span>9%(-4)=-3       9-(-4)✳(-3)=-3
+</div></div></div></code></pre>
+<p>//         整除（例如9➗4=2.25，那么9整除4就是2，抹掉了小数点和小数后面的数）</p>
+<p>整除：一正一负往下取整。例如9➗-4得出来是-2.25，整除后是-3，如下图</p>
+<p><img src="f67c1cdf6adcbe3411f604bd4733aa0c.png" alt="无标题.png"></p>
+
+        </article>
+      </body>
+      </html>
